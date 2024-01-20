@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  trender_cdn:
+    restart: always
+    image: trender-cdn:latest
+    container_name: trender-cdn
+    hostname: cdn-production.local
+    networks:
+      - trenderproxy
+    expose:
+      - 1025
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.trender_cdn.rule=Host(`cdn2.trenderapp.com`, `cdn.trenderapp.com`)"
+      - "traefik.http.routers.trender_cdn.entrypoints=websecure"
+      - "traefik.http.routers.trender_cdn.tls=true"
+      - "traefik.http.routers.trender_cdn.tls.certresolver=cdn_trenderapp_com_cert"
+      - "traefik.http.routers.trender_cdn.service=trender_cdn_service"
+      - "traefik.http.services.trender_cdn_service.loadbalancer.server.port=1025"
+    entrypoint: ["yarn", "poststart"]  
+
+networks:
+  trenderproxy:
+    external: true

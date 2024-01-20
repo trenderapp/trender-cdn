@@ -10,7 +10,9 @@
 
 # production
 /build
-/public 
+/public
+/dist
+/.husky
 
 # misc
 .DS_Store
