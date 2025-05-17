@@ -9,7 +9,7 @@ services:
     networks:
       - trenderproxy
     expose:
-      - 1025
+      - 1026
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.trender_cdn.rule=Host(`cdn2.trenderapp.com`, `cdn.trenderapp.com`)"
@@ -17,7 +17,7 @@ services:
       - "traefik.http.routers.trender_cdn.tls=true"
       - "traefik.http.routers.trender_cdn.tls.certresolver=cdn_trenderapp_com_cert"
       - "traefik.http.routers.trender_cdn.service=trender_cdn_service"
-      - "traefik.http.services.trender_cdn_service.loadbalancer.server.port=1025"
+      - "traefik.http.services.trender_cdn_service.loadbalancer.server.port=1026"
     entrypoint: ["yarn", "poststart"]  
 
 networks:
