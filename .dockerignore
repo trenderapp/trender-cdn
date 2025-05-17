@@ -13,7 +13,7 @@ README.md
 .env.development
 
 node_modules
-src
+dist
 logs
 environments
 letsencrypt

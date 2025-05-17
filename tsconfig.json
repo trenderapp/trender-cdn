@@ -24,7 +24,6 @@
     "declaration": false,
     "importHelpers": true,
     "ignoreDeprecations": "5.0",
-    "importsNotUsedAsValues": "error",
     "inlineSources": false,
     "newLine": "lf",
     "noEmitHelpers": true,
